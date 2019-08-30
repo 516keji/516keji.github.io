@@ -1,0 +1,414 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="516科技">
+		<meta name="keywords" content="border-radius">
+		<meta name="description" content="这是一个通过圆角属性画出的多啦A梦">
+		<title>哆啦A梦</title>
+		<link rel="icon" href="">
+		<style>
+			body{
+				margin: 0;
+			}
+			/* 样式初始化 */
+			div{
+				border: 1px solid #000;
+			}
+			.wrap{
+				position: relative;
+				margin: 5px auto;
+				width: 700px;
+				height: 700px;
+				border: none;
+			}
+			.wrap .head{
+				position: relative;
+				margin: auto;
+				width: 430px;
+				height: 410px;
+				background-color: #487cc2;
+				border-radius: 50%;
+			}
+			.wrap .head .face{
+				position: absolute;
+				right: 0;
+				left: 0;
+				bottom: 0;
+				margin: 0 auto;
+				width: 350px;
+				height: 275px;
+				background-color: #fff;
+				border-radius: 40%/50%;
+			}
+			/* 脸部结束 */
+			.wrap .head .eye{
+				position: absolute;
+				width: 120px;
+				height: 150px;
+				background-color: #fff;
+				border-radius: 50%;
+			}
+			.wrap .head .left{
+				top: -66px;
+				left: 53px;
+			}
+			.wrap .head .right{
+				top: -66px;
+				right: 53px;
+			}
+			[class|=pupil]{
+				position: absolute;
+				width: 18px;
+				height: 30px;
+				background-color: #000;
+				border-radius: 50%;
+			}
+			.wrap .head .pupil-1{
+				right: 40px;
+				bottom: 40px;
+			}
+			.wrap .head .pupil-2{
+				left: 40px;
+				bottom: 40px;
+			}
+			/* 眼睛结束 */
+			.wrap .head .nose{
+				position: absolute;
+				left: 146px;
+				top: 53px;
+				width: 55px;
+				height: 55px;
+				background-color: #f73526;
+				border-radius: 50%;
+			}
+			.wrap .head .nose-dotted{
+				margin: 5px 3px 0 auto;
+				width: 22px;
+				height: 25px;
+				background-color: #fff;
+				border-radius: 50%;
+			}
+			/* 鼻子结束 */
+			.wrap .head .mouth-top{
+				position: absolute;
+				left: 174px;
+				top: 109px;
+				width: 0;
+				height: 110px;
+			}
+			.wrap .head .mouth-bottom{
+				overflow: hidden;
+				position: absolute;
+				left: 44px;
+				bottom: 50px;
+				width: 260px;
+				height: 49px;
+				border: none;
+			}
+			.wrap .head .arc{/* 嘴巴下方的圆弧 */
+				margin-top: -92px;
+				width: 260px;
+				height: 135px;
+				border-radius: 50%;
+				border: 2px solid #000;
+			}
+			/* 嘴部完成 */
+			.wrap .head [class|=moustache]{
+				position: absolute;
+				width: 110px;
+				height: 90px;
+				border: none;
+			}
+			.wrap .head .moustache-left{
+				left: 15px;
+				top: 82px;
+			}
+			.wrap .head .moustache-right{
+				right: 15px;
+				top: 82px;
+			}
+			.wrap .head [class|=line-2]{
+				position: absolute;
+				top: 50px;
+				width: 102px;
+			}
+			.wrap .head .line-2-left{
+				left:0;
+			}
+			.wrap .head .line-2-right{
+				right:0;
+			}
+			.wrap .head [class|=line-1]{
+				position: absolute;
+				top: 25px;
+				width: 98px;
+			}
+			.wrap .head .line-1-left{
+				left:4px;
+				transform: rotate(8deg)
+			}
+			.wrap .head .line-1-right{
+				right:4px;
+				transform: rotate(-8deg)
+			}
+			.wrap .head [class|=line-3]{
+				position: absolute;
+				top: 75px;
+				width: 98px;
+			}
+			.wrap .head .line-3-left{
+				left:4px;
+				transform: rotate(-8deg)
+			}
+			.wrap .head .line-3-right{
+				right:4px;
+				transform: rotate(8deg)
+			}
+			/* 胡子完成 */
+			.wrap .body {
+				position: relative;
+				/* left: 0; */
+				/* right: 0; */
+				margin: 0 auto;
+				width: 268px;
+				height: 212px;
+				background-color: #487cc2;
+			}
+			.wrap .body .neck{
+				position: absolute;
+				left: -10px;
+				top: -16px;
+				width: 285px;
+				height: 22px;
+				background-color: #ff3620;
+				border-radius: 11px;
+			}
+			/* 脖子完成 */
+			.wrap .body [class|=belly]{
+				position: absolute;
+				height: 216px;
+			}
+			.wrap .body .belly{
+				left: 24px;
+				top: 7px;
+				overflow: hidden;
+				width: 216px;
+				border: none;
+			}
+			.wrap .body .belly-son{
+				left: 0;
+				top: -50px;
+				width: 214px;
+				background-color: #fff;
+				border-radius: 50%;
+			}
+			/* 肚子结束 */
+			.wrap .body .bell{
+				position: absolute;
+				top: -6px;
+				left: 0px;
+				right: 0px;
+				margin: 0 auto;
+				width: 56px;
+				height: 56px;
+				border-radius: 50%;
+				background-color: #dccb12;
+			}
+			.wrap .body .line-top{
+				margin: 5px auto;
+				width: 28px;
+			}
+			.wrap .body .line-bottom{
+				margin: 10px auto;
+				width: 46px;
+			}
+			.wrap .body .dot{
+				margin: auto auto 5px;
+				width: 20px;
+				height: 20px;
+				background-color: #000;
+				border-radius: 50%;
+			}
+			.wrap .body .line-0{
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				margin: 0 auto;
+				width: 0;
+				height: 5px;
+				background-color: #000;
+				border-radius: 50%;
+			}
+			/* 铃铛结束 */
+			.wrap .body .navel{
+				position: absolute;
+				top: 126px;
+				right: 0;
+				left: 0;
+				margin: 0 auto;
+				overflow: hidden;
+				width: 126px;
+				height: 146px;
+				border-style: solid none none;
+			}
+			.wrap .body .navel-son{
+				position: absolute;
+				top: -77px;
+				right: 0;
+				left: 0;
+				width: 124px;
+				height: 146px;
+				border-radius: 50%;
+			}
+			/* 肚脐结束 */
+			.wrap .body .trousers{
+				overflow: hidden;
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: -1px;
+				margin: 0 auto;
+				width: 45px;
+				height: 45px;
+				border: none;
+			}
+			.wrap .body .trousers-son{
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: -30px;
+				margin: 0 auto;
+				width: 43px;
+				height: 43px;
+				border-radius: 50%;
+				background-color: #fff;
+			}
+			/* 裤子结束 */
+			.wrap [class|=foot]{
+				position: absolute;
+				bottom: 30px;
+				width: 166px;
+				height: 60px;
+				background-color: #fff;
+				border-radius: 50%;
+			}
+			.wrap .foot-left{
+			left: 180px;
+			}
+			.wrap .foot-right{
+			right: 180px;
+			}
+			/* 脚部结束 */
+			.wrap [class|=arm]{
+				position: absolute;
+				width: 86px;
+				height: 54px;
+				background-color: #487cc2;
+				transform: skewY(20deg);
+			}
+			.wrap .arm-left{	
+				top: 404px;
+				left: 128px;
+			}
+			.wrap .arm-right{
+				top: 436px;
+				right: 128px;
+			}
+			.wrap .arm-left > div{	
+				position: absolute;
+				left: 85px;
+				top: 0;
+				width: 0;
+				height: 30px;
+				border-color: #487cc2;
+			}
+			.wrap .arm-right > div{	
+				position: absolute;
+				right: 85px;
+				top: 0;
+				width: 0;
+				height: 30px;
+				border-color: #487cc2;
+			}
+			/* 胳膊结束 */
+			.wrap [class|=hand]{
+				position: absolute;
+				width: 76px;
+				height: 76px;
+				border-radius: 50%;
+				background-color: #fff;
+			}
+			.wrap .hand-left{
+				left: 68px;
+				bottom: 250px;
+			}
+			.wrap .hand-right{
+				right: 68px;
+				bottom: 178px;
+			}
+			/* 手部结束 */
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="head"><!-- 头部 -->
+				<div class="face"><!-- 脸部 -->
+					<div class="eye left"><!-- 左眼 -->
+						<div class="pupil-1"></div><!-- 左眼瞳 -->
+					</div>
+					<div class="eye right"><!-- 右眼 -->
+						<div class="pupil-2"></div><!-- 右眼瞳 -->
+					</div>
+					<div class="nose"><!-- 鼻子 -->
+						<div class="nose-dotted"></div>
+					</div>
+					<div class="mouth-top"></div><!-- 嘴部 -->
+					<div class="mouth-bottom">
+						<div class="arc"></div>
+					</div>
+					<div class="moustache-left"><!-- 左胡子 -->
+						<div class="line-1-left"></div>
+						<div class="line-2-left"></div>
+						<div class="line-3-left"></div>
+					</div>
+					<div class="moustache-right"><!-- 右胡子 -->
+						<div class="line-1-right"></div>
+						<div class="line-2-right"></div>
+						<div class="line-3-right"></div>
+					</div>
+				</div>
+			</div>
+			<div class="body"><!-- 身体 -->
+				<div class="neck"></div><!-- 脖子 -->
+				<div class="belly"><!-- 肚子 -->
+					<div class="belly-son">
+						<div class="navel"><!-- 肚脐 -->
+							<div class="navel-son"></div>
+						</div>
+					</div>
+				</div>
+				<div class="bell"><!-- 铃铛 -->
+					<div class="line-top"></div>
+					<div class="line-bottom"></div>
+					<div class="dot"></div>
+					<div class="line-0"></div>
+				</div>
+				<div class="trousers"><!-- 裤子 -->
+					<div class="trousers-son"></div>
+				</div>
+			</div>
+			<div class="foot-left"></div><!-- 脚部 -->
+			<div class="foot-right"></div>
+			<div class="arm-left"><!-- 左胳膊 -->
+				<div></div>
+			</div>
+			<div class="arm-right"><!-- 右胳膊 -->
+				<div></div>
+			</div>
+			<div class="hand-left"></div><!-- 手部 -->
+			<div class="hand-right"></div>
+		</div>
+	</body>
+</html>

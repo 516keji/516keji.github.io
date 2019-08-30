@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Author" content="516科技">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<title>Document</title>
+		<style>
+			body,p,h1,h2,h3,h4,h5,ul{
+				margin: 0;
+			}
+			h1,h2,h3,h4,h5{
+				font-size: 16px;
+				font-weight: normal;
+			}
+			ul{
+				padding-left: 0;
+				list-style-type: none;
+			}
+			a{
+				color: #222;
+				text-decoration: none;
+			}
+			/* 样式初始化 */
+			.clearfix:after{
+				content: ".";
+				display: block;
+				height: 0;
+				font-size: 0;
+				overflow: hidden;
+				clear: both;
+			}
+			.show{
+				margin: 50px auto;
+				width: 1000px;
+				height: 500px;
+				border: 1px solid #ccc;
+			}
+			.show li{
+				float: left;
+				background-color: pink;
+			}
+			.show li > input{
+				display: none;
+			}
+			.show li > label{
+				display: block;
+				width: 100px;
+				height: 500px;
+				cursor: pointer;
+				transition: 0.3s linear;
+			}
+			.show li:nth-child(1){
+				background: url("images/1.jpg") no-repeat center/cover;
+			}
+			.show li:nth-child(2){
+				background: url("images/2.jpg") no-repeat center/cover;
+			}
+			.show li:nth-child(3){
+				background: url("images/3.jpg") no-repeat center/cover;
+			}
+			.show li:nth-child(4){
+				background: url("images/4.jpg") no-repeat center/cover;
+			}
+			.show li > .background{
+				position: absolute;
+				top: -100%;
+				left: 0;
+				z-index: -1;
+				width: 100%;
+				height: 100%;
+				filter: blur(2px);
+				transition: 0.1s linear;
+			}
+			.show li > input:checked + label{
+				width: 700px;
+			}
+			.show li > input:checked ~ div{
+				top: 0;
+			}
+			.show li:nth-child(1) > input:checked ~ div{
+				background-image: url("images/1.jpg");
+			}
+			.show li:nth-child(2) > input:checked ~ div{
+				background-image: url("images/2.jpg");
+			}
+			.show li:nth-child(3) > input:checked ~ div{
+				background-image: url("images/3.jpg");
+			}
+			.show li:nth-child(4) > input:checked ~ div{
+				background-image: url("images/4.jpg");
+			}
+		</style>
+	</head>
+	<body>
+		<div class="show">
+			<ul class="clearfix">
+				<li>
+					<input id="pic-1" type="radio" name="success" checked>
+					<label for="pic-1"></label>
+					<div class="background"></div>
+				</li>
+				<li>
+					<input id="pic-2" type="radio" name="success">
+					<label for="pic-2"></label>
+					<div class="background"></div>
+				</li>
+				<li>
+					<input id="pic-3" type="radio" name="success">
+					<label for="pic-3"></label>
+					<div class="background"></div>
+				</li>
+				<li>
+					<input id="pic-4" type="radio" name="success">
+					<label for="pic-4"></label>
+					<div class="background"></div>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

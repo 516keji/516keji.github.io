@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="516科技">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+        <meta name="Keywords" content="516科技">
+        <meta name="Description" content="这是一个由516科技编写的网页">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/index.css">
+        <style>
+            body,p,h1,h2,h3,h4,h5,ul{
+                margin: 0;
+            }
+            h1,h2,h3,h4,h5{
+                font-size: 16px;
+                font-weight: normal;
+            }
+            ul{
+                list-style-type: none;
+                padding-left: 0;
+            }
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
+            .clearfix:after{
+                content: ".";
+                display: block;
+                height: 0;
+                font-size: 0;
+                overflow: hidden;
+                clear: both;
+            }
+            ::selection { background: #99cc33;color: #fff; } /* webkit, opera, IE9选中后的样式 */
+            ::-moz-selection { background: #99cc33;color: #fff; } /* mozilla firefox 火狐浏览器中选中后的样式*/
+            /* 样式初始化 */
+        </style>
+        <style id="css"></style>
+    </head>
+    <body>
+        <div id="all">
+
+            <!-- 左侧 -->
+            <div id="main">
+
+                <!-- 125个li -->
+                <ul class="list Grid">
+    
+                </ul>
+    
+                <!--左下角按钮-->
+                <div id="btn">
+                    <ul>
+                        <li>Table</li>
+                        <li>Sphere</li>
+                        <li>Helix</li>
+                        <li>Grid</li>
+                    </ul>
+                </div>
+                <!--弹窗部分-->
+                <div id="alert" style="opacity: 0;">
+                    <div class="title"><span>小米商城官网</span></div>
+                    <div class="img"><img src="src/xiaomi/images/banner/xmad_15517939170939_oiXCK.jpg"></div>
+                    <div class="author"><span>作者：516科技</span></div>
+                    <div class="info"><span>描述：这是仿照小米商城的前端页面</span></div>
+                </div>
+            </div>
+
+            <!-- 右侧 -->
+            <div id="iframe">
+                <iframe src="" frameborder="0"></iframe>
+                <div id="back">
+                    Back
+                </div>
+            </div>
+        </div>
+        <script src="./js/data.js"></script>
+        <script src="./js/index.js"></script>
+    </body>
+<html>
