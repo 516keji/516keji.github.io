@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="516科技">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+        <meta name="Keywords" content="516科技">
+        <meta name="Description" content="这是一个由516科技编写的网页">
+        <title>Document</title>
+        <style>
+            body,p,h1,h2,h3,h4,h5,ul{
+                margin: 0;
+            }
+            h1,h2,h3,h4,h5{
+                font-size: 16px;
+                font-weight: normal;
+            }
+            ul{
+                list-style-type: none;
+                padding-left: 0;
+            }
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
+            .clearfix:after{
+                content: ".";
+                display: block;
+                height: 0;
+                font-size: 0;
+                overflow: hidden;
+                clear: both;
+            }
+            ::selection { background: #99cc33;color: #fff; } /* webkit, opera, IE9选中后的样式 */
+            ::-moz-selection { background: #99cc33;color: #fff; } /* mozilla firefox 火狐浏览器中选中后的样式*/
+            /* 样式初始化 */
+            html,body{
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+            }
+            #wrap{
+                position: absolute;
+                z-index: 1;
+                left: 200px;
+                top: 200px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background:radial-gradient(#fff,#f00);
+            }
+            #shadow{
+                position:absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            #shadow p{
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                /* background-color: pink; */
+                transform-origin:center center;
+                transform: scale(0.8);
+                opacity: 1;
+                border-radius: 50%;
+                animation: tail .5s;
+                animation-fill-mode: forwards;
+            }
+            @keyframes tail{
+                0%{transform: scale(0.8);opacity: 1;}
+                100%{transform: scale(0);opacity: 0;}
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap" style="left: 200px;"></div>
+        <div id="shadow">
+        </div>
+        <script>
+            (function(){
+                let oWrap = document.querySelector("#wrap")
+                    ,oShadow = document.querySelector("#shadow")
+                    ,oTop = oWrap.offsetTop
+                    ,oLeft = oWrap.offsetLeft
+                    ,vT = 4 //垂直速度
+                    ,vL = 8 //水平速度
+                    ,maxW,maxH
+                ;
+                // 检测窗口变化,及时获取 maxW 和 maxH 值
+                window.onresize = (function re(){
+                    maxW = window.innerWidth-50;
+                    maxH = window.innerHeight-50;
+                    return re;
+                })();
+                
+                (function run(){
+                    oTop += vT;
+                    oLeft += vL;
+                    // 触底反弹
+                    if(oTop>=maxH){
+                        oTop = maxH;
+                        vT = -vT;    
+                    }
+                    // 触顶反弹
+                    if(oTop<=0){
+                        oTop = 0;
+                        vT = -vT;
+                    }
+                    // 触右反弹
+                    if(oLeft>=maxW){
+                        oLeft = maxW;
+                        vL = -vL;
+                    }
+                    // 触左反弹
+                    if(oLeft<=0){
+                        oLeft = 0;
+                        vL = -vL;
+                    }
+                    oWrap.style.top = oTop+"px";
+                    oWrap.style.left = oLeft+"px";
+                    tails();
+                    requestAnimationFrame(run);
+                })();
+                // 创建尾巴
+                function tails(){
+                    let p = document.createElement("p")
+                    p.style.cssText = `left: ${oLeft}px;top: ${oTop}px;background-color: ${randomColor()}`;
+                    oShadow.appendChild(p);
+                    setTimeout(function(){
+                        oShadow.removeChild(p);
+                    },500)
+                }
+                //随机颜色
+                function randomColor(){
+                    let r = Math.floor(Math.random()*256)
+                        ,g = Math.floor(Math.random()*256)
+                        ,b = Math.floor(Math.random()*256)
+                    ;
+                    return `rgb(${r},${g},${b})`;
+                }
+            })();
+        </script>
+    </body>
+<html>

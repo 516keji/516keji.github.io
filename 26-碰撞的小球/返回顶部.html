@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="516科技">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+        <meta name="Keywords" content="516科技">
+        <meta name="Description" content="这是一个由516科技编写的网页">
+        <title>Document</title>
+        <style>
+            body,p,h1,h2,h3,h4,h5,ul{
+                margin: 0;
+            }
+            h1,h2,h3,h4,h5{
+                font-size: 16px;
+                font-weight: normal;
+            }
+            ul{
+                list-style-type: none;
+                padding-left: 0;
+            }
+            a{
+                text-decoration: none;
+                color: inherit;
+            }
+            .clearfix:after{
+                content: ".";
+                display: block;
+                height: 0;
+                font-size: 0;
+                overflow: hidden;
+                clear: both;
+            }
+            ::selection { background: #99cc33;color: #fff; } /* webkit, opera, IE9选中后的样式 */
+            ::-moz-selection { background: #99cc33;color: #fff; } /* mozilla firefox 火狐浏览器中选中后的样式*/
+            /* 样式初始化 */
+            body{
+                user-select: none;
+                height: 3000px;
+            }
+            div{
+                display: none;
+                position: fixed;
+                right: 20px;
+                bottom: 30px;
+                width: 36px;
+                height: 36px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <a href="javascript:;">返回顶部</a>
+        </div>
+        <script>
+            let oD = document.querySelector("div")
+                ,oA = document.querySelector("a")
+            ;
+            window.onscroll = function(){
+                let top = document.documentElement.scrollTop;
+                if(top>600){
+                    oD.style.display = "block";
+                }else{
+                    oD.style.display = "none";
+                }
+            };
+            oA.onclick = function(){
+                let top = document.documentElement.scrollTop;
+                let tmp = top;
+
+                (function m(){
+                    if ( top > 0 ){
+                    //top -= 100;
+                    top -= tmp*0.1;
+                    // setTimeout(m,16);
+                    requestAnimationFrame(m);
+                    }else{
+                    top = 0;
+                    }
+
+                    document.documentElement.scrollTop = top;
+                })();
+
+            };
+        </script>
+    </body>
+
+<html>
